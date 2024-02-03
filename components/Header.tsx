@@ -22,6 +22,7 @@ export default function Header() {
             <nav className="flex items-center divide-x text-sm sm:text-base">
                 {[
                     ["L'asso", "/"],
+                    ["Agenda", "/agenda"],
                     ["Nos Projets", "/projets"],
                     ["Nous rencontrer", "/nous-rencontrer"],
                 ].map(([label, href]) => (
