@@ -4,6 +4,8 @@ Site officiel v2
 
 # Developpement
 
+Built with NextJS v14
+
 ## Local server
 
 First, run the development server:

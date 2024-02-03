@@ -27,7 +27,7 @@ function CardBase(
                 <h3>
                     {title}
                 </h3>
-                {description.split('\n').map((line) => (<p>{line}</p>))}
+                {description.split('\n').map((line, i) => (<p key={i}>{line}</p>))}
             </div>
         </div>
     )
