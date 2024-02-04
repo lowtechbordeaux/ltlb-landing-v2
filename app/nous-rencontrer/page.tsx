@@ -48,8 +48,7 @@ export default function NousRencontrer() {
                 src="/assets/icons/envelope-regular-w.svg"
                 alt="mail"
                 fill
-                objectFit='fill'
-                className='text-white'
+                className="object-fill"
               />
             </div>
           </div>

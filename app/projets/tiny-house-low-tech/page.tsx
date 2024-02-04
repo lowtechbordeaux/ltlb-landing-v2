@@ -14,7 +14,7 @@ export default function Projets() {
           src={'/assets/pics/tiny_2.jpg'}
           alt="tiny house low tech"
           fill
-          objectFit='cover'
+          className="object-cover"
         />
       </div>
 
@@ -47,7 +47,7 @@ export default function Projets() {
               src={'/assets/logos/tiny_lab_logo.png'}
               alt="la planche"
               fill
-              objectFit='contain'
+              className="object-contain"
             />
           </Link>
           <Link
@@ -58,7 +58,7 @@ export default function Projets() {
               src={'/assets/logos/la_planche_logo.png'}
               alt="la planche"
               fill
-              objectFit='contain'
+              className="object-contain"
             />
           </Link>
         </div>

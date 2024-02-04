@@ -15,7 +15,7 @@ export default function Header() {
                         src="/assets/logos/ltlb_full_transparent.png"
                         alt="ltlb logo"
                         fill
-                        objectFit="contain"
+                        className="object-contain"
                     />
                 </div>
             </Link>
