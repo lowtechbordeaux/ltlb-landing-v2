@@ -1,3 +1,5 @@
+'use client'
+
 import { refreshCache } from './actions';
 
 export default function Page() {
