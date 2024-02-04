@@ -14,7 +14,7 @@ export default function Projets() {
           src={'/assets/pics/clim_2.jpg'}
           alt="clim passive"
           fill
-          objectFit='cover'
+          className="object-cover"
         />
       </div>
       <div className='flex flex-col w-full max-w-xl mt-4 px-2 sm:px-0'>
