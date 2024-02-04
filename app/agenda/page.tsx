@@ -1,8 +1,8 @@
 import NotionProperty from "@/components/notion/NotionProperty";
-import { queryDatabase, getPageContent, getPage, renderPageProperty } from "@/lib/notion";
+import { queryDatabase, getPageContent, renderPageEmoji } from "@/lib/notion";
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
-import Link from "next/link";
 import NotionBlock from "@/components/notion/NotionBlock";
+import NotionImage, { pageHasImage } from "@/components/notion/NotionImage";
 
 async function getAgendaData(past: boolean = false) {
   const dateFilter = past ?
@@ -47,35 +47,42 @@ async function EventRow({
   event: PageObjectResponse
 }) {
 
-  const page = await getPage(event.id);
   const blocks = await getPageContent(event.id);
 
   return (
-    <Link
-      href={`/agenda/${event.id}`}
+    <div
+      className='w-full border flex px-4 py-6 cursor-pointer'
     >
-      <div
-        className='w-full border flex w-full px-4 py-4 hover:bg-tradewind-50 cursor-pointer'
-      >
-        <div className='flex items-center mr-4'>
-        </div>
-        <div className='flex-1 flex flex-col'>
-          <h1>
-            <NotionProperty property={event.properties['Nom']} />
-          </h1>
-          <p className="text-slate-500 text-end">
-            Le <NotionProperty property={event.properties['Date']} />
-          </p>
-          <p className="text-slate-500 text-end">
-            Lieu: <NotionProperty property={event.properties['Lieu']} />
-          </p>
+      <div className='flex items-center mr-4'>
+      </div>
+      <div className='flex-1 flex flex-col'>
+        <h1>
+          <span className="mr-2">{renderPageEmoji(event, '📅')}</span>
+          <NotionProperty property={event.properties['Nom']} />
+        </h1>
+        <p className="text-slate-500 text-end">
+          Le <NotionProperty property={event.properties['Date']} />
+        </p>
+        <p className="text-slate-500 text-end">
+          Lieu: <NotionProperty property={event.properties['Lieu']} />
+        </p>
+        {pageHasImage(event.properties['image']) &&
+          <NotionImage
+            property={event.properties['image']}
+            className="w-full my-2"
+          />
+        }
 
-          <div className="flex flex-col">
-            {blocks.map((block) => (<NotionBlock key={block.id} block={block} />))}
-          </div>
+        <div className="flex flex-col">
+          {blocks.map((block) => (
+            <NotionBlock
+              key={block.id}
+              block={block}
+              className="w-full"
+            />))}
         </div>
       </div>
-    </Link >
+    </div>
   )
 }
 
@@ -90,18 +97,20 @@ export default async function Projets() {
         Agenda
       </h2>
 
-      <h3>À venir</h3>
-      <div className="w-full max-w-lg">
-        {nextEvents.map((event) => (
-          <EventRow event={event} key={event.id} />
-        ))}
-      </div>
+      <div className='w-full max-w-2xl'>
+        <h3 className="font-bold ml-4 mb-2">À venir</h3>
+        <div className="w-full">
+          {nextEvents.map((event) => (
+            <EventRow event={event} key={event.id} />
+          ))}
+        </div>
 
-      <h3 className="mt-4 font-bold">Passés</h3>
-      <div className="w-full max-w-lg">
-        {pastEvents.map((event) => (
-          <EventRow event={event} key={event.id} />
-        ))}
+        <h3 className="font-bold ml-4 mb-2 mt-8">Passés</h3>
+        <div className="w-full">
+          {pastEvents.map((event) => (
+            <EventRow event={event} key={event.id} />
+          ))}
+        </div>
       </div>
     </main>
   );
