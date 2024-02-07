@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function ConditionalWrapper({ wrapper, children }: {
-  wrapper?: ((children: React.ReactNode) => React.ReactNode) | false;
+  wrapper?: ((children: React.ReactNode) => React.ReactNode) | '' | undefined | null | false;
   children: React.ReactNode;
 }) {
   return wrapper ? wrapper(children) : children;

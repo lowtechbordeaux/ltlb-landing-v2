@@ -19,6 +19,7 @@ import { Menu } from "lucide-react"
 const routes = [
     ["L'asso", "/"],
     ["Agenda", "/agenda"],
+    ["Réalisations", "/low-techs"],
     ["Nos Projets", "/projets"],
     ["Nous rencontrer", "/nous-rencontrer"],
 ]

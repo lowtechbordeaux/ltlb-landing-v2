@@ -6,6 +6,7 @@ type NotionAssetProps = {
     assetRequest: AssetRequest
     className?: string,
     defaultIcon?: string,
+    defaultImage?: string,
     dateFormat?: {
         dateFormat: string,
         hourFormat?: string,
@@ -15,7 +16,7 @@ type NotionAssetProps = {
     }
 }
 
-export default async function NotionAsset({ assetRequest, className, defaultIcon, dateFormat }: NotionAssetProps) {
+export default async function NotionAsset({ assetRequest, className, defaultIcon, dateFormat, defaultImage }: NotionAssetProps) {
     if (assetRequest.object !== 'page') {
         throw new Error('NotionAsset: object type ' + assetRequest.object + ' is not supported')
     }
@@ -25,6 +26,7 @@ export default async function NotionAsset({ assetRequest, className, defaultIcon
     switch (assetRequest.field) {
         case 'properties': {
             const property = page.properties[assetRequest.propertyName]
+            if (!property) throw new Error('NotionAsset: property ' + assetRequest.propertyName + ' not found')
             switch (property.type) {
                 case 'number': {
                     return <span className={className}>{property.number}</span>
@@ -45,7 +47,7 @@ export default async function NotionAsset({ assetRequest, className, defaultIcon
                     return <span className={className}>{reduceRichText(property.title)}</span>
                 }
                 case 'files': {
-                    return <NotionImage assetRequest={assetRequest} className={className} />
+                    return <NotionImage assetRequest={assetRequest} className={className} defaultImage={defaultImage} />
                 }
                 case 'date': {
                     if (!property.date) throw Error('date property is empty')
@@ -86,10 +88,10 @@ export default async function NotionAsset({ assetRequest, className, defaultIcon
             if (page.icon.type === 'emoji')
                 return <span className={className}>{page.icon.emoji}</span>
 
-            return <NotionImage assetRequest={assetRequest} className={className} />
+            return <NotionImage assetRequest={assetRequest} className={className} defaultImage={defaultImage} />
         }
         case 'cover': {
-            return <NotionImage assetRequest={assetRequest} className={className} />
+            return <NotionImage assetRequest={assetRequest} className={className} defaultImage={defaultImage} />
         }
     }
 }

@@ -4,11 +4,19 @@ Site officiel v2
 
 # Developpement
 
-Built with NextJS v14
+Le site a été réalisé avec NextJS v14
+
+Certaines parties du sites sont dynamiques et chargées depuis une base de donnée Notion. 
+
+## Environment variables
+
+Some variables must be set
+
+On local dev environment, copy `.env.example` to `.env.local`
 
 ## Local server
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev

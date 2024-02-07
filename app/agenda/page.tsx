@@ -1,5 +1,5 @@
 import { queryDatabase, getPageContent, NOTION_PAGE_CACHE_TIME } from "@/lib/notion";
-import type { DatePropertyItemObjectResponse, PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { NotionBlock, NotionAsset } from "@/components/notion";
 
 export const revalidate = NOTION_PAGE_CACHE_TIME
@@ -51,7 +51,7 @@ async function EventRow({
 
   return (
     <div
-      className='w-full border flex flex-col px-4 py-6'
+      className='w-full flex flex-col px-4 py-6'
     >
       <div className='flex flex-row justify-between'>
         <div>
@@ -143,17 +143,25 @@ export default async function Projets() {
 
       <div className='w-full max-w-2xl'>
         <h3 className="font-bold ml-4 mb-2">À venir</h3>
-        <div className="w-full">
-          {nextEvents.map((event) => (
-            <EventRow event={event} key={event.id} />
-          ))}
+        <div className="w-full border divide-y">
+          {nextEvents.length ?
+            nextEvents.map((event) => (
+              <EventRow event={event} key={event.id} />
+            ))
+            :
+            <p className="text-center">Aucun évenement à venir</p>
+          }
         </div>
 
         <h3 className="font-bold ml-4 mb-2 mt-8">Passés</h3>
-        <div className="w-full">
-          {pastEvents.map((event) => (
-            <EventRow event={event} key={event.id} />
-          ))}
+        <div className="w-full border divide-y">
+          {pastEvents.length ?
+            pastEvents.map((event) => (
+              <EventRow event={event} key={event.id} />
+            ))
+            :
+            <p className="text-center">Aucun évenement passé</p>
+          }
         </div>
       </div>
     </main>
