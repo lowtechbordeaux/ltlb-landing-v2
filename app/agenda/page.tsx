@@ -43,11 +43,6 @@ async function getAgendaData(past: boolean = false) {
   return data;
 }
 
-function formatDate(date: DatePropertyItemObjectResponse['date']) {
-
-  return dayjs(date.start).format('DD/MM/YYYY')
-}
-
 async function EventRow({
   event
 }: {
