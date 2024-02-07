@@ -1,8 +1,5 @@
 import type { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-endpoints"
-
-type Property = PageObjectResponse['properties'][string]
-type PropertyOf<T> = Property & { type: T }
-type PropertyType = Property['type']
+import type { Property, PropertyType, PropertyOf } from './types'
 
 export function getProperty<T extends PropertyType>(page: PageObjectResponse, name: string, type: T): PropertyOf<T> {
     const property = page.properties[name] as Property & { type: T }

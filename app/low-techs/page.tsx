@@ -31,50 +31,48 @@ export default async function LowTechs() {
         Low-techs réalisées
       </h2>
 
-      <div className='flex flex-col space-y-4 w-full max-w-xl items-center'>
+      <div className='flex flex-col space-y-4 w-full max-w-md items-center'>
         {lowtechs.length ?
           lowtechs.map((item) => (
-            <Link href={`/low-techs/${reduceRichTextProperty(item, 'slug')}`} key={item.id}>
-              <div
-                className="border flex w-full px-4 py-4 hover:bg-tradewind-50 cursor-pointer"
-              >
-                <div className='flex items-center mr-4'>
-                  <div className='w-32 h-32 relative'>
-                    <NotionAsset
-                      assetRequest={{
-                        page: item,
-                        object: 'page',
-                        field: 'properties',
-                        propertyName: 'Images',
-                        propertyIndex: 0
-                      }}
-                      className="w-full h-full object-cover"
-                      defaultImage="/images/placeholder.png"
-                    />
-                  </div>
+            <Link href={`/low-techs/${reduceRichTextProperty(item, 'slug')}`} key={item.id}
+              className="border flex w-full px-4 py-4 hover:bg-tradewind-50 cursor-pointer"
+            >
+              <div className='flex items-center mr-4'>
+                <div className='w-32 h-32 relative'>
+                  <NotionAsset
+                    assetRequest={{
+                      page: item,
+                      object: 'page',
+                      field: 'properties',
+                      propertyName: 'Images',
+                      propertyIndex: 0
+                    }}
+                    className="w-full h-full object-cover"
+                    defaultImage={`https://placehold.co/300x300?text=${reduceRichTextProperty(item, 'slug')}`}
+                  />
                 </div>
-                <div className='flex-1 flex flex-col'>
-                  <p className="font-semibold">
-                    <NotionAsset
-                      assetRequest={{
-                        object: 'page',
-                        page: item,
-                        field: 'properties',
-                        propertyName: 'Nom'
-                      }}
-                    />
-                  </p>
-                  <p className="text-slate-500">
-                    <NotionAsset
-                      assetRequest={{
-                        object: 'page',
-                        page: item,
-                        field: 'properties',
-                        propertyName: 'short_desc'
-                      }}
-                    />
-                  </p>
-                </div>
+              </div>
+              <div className='flex-1 flex flex-col'>
+                <p className="font-semibold">
+                  <NotionAsset
+                    assetRequest={{
+                      object: 'page',
+                      page: item,
+                      field: 'properties',
+                      propertyName: 'Nom'
+                    }}
+                  />
+                </p>
+                <p className="text-slate-500">
+                  <NotionAsset
+                    assetRequest={{
+                      object: 'page',
+                      page: item,
+                      field: 'properties',
+                      propertyName: 'short_desc'
+                    }}
+                  />
+                </p>
               </div>
             </Link>
           ))

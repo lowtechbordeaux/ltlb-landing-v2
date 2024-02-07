@@ -13,14 +13,8 @@ export type AssetRequest =
     }
     | { object: 'block'; field: 'image'; block: ImageBlockObjectResponse }
 
-export type AssetRequestLight =
-    | { object: 'page'; field: 'icon'; id: string }
-    | { object: 'page'; field: 'cover'; id: string }
-    | {
-        object: 'page';
-        field: 'properties';
-        propertyName: string;
-        propertyIndex?: number;
-        id: string;
-    }
-    | { object: 'block'; field: 'image'; id: string }
+
+
+export type Property = PageObjectResponse['properties'][string]
+export type PropertyOf<T> = Property & { type: T }
+export type PropertyType = Property['type']
