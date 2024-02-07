@@ -1,7 +1,8 @@
 import { queryDatabase, getPageContent, NOTION_PAGE_CACHE_TIME } from "@/lib/notion";
-import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
-import NotionBlock from "@/components/notion/NotionBlock";
-import NotionAsset from "@/components/notion/NotionAsset";
+import type { DatePropertyItemObjectResponse, PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import { NotionBlock, NotionAsset } from "@/components/notion";
+
+import dayjs from "dayjs"
 
 export const revalidate = NOTION_PAGE_CACHE_TIME
 
@@ -42,6 +43,11 @@ async function getAgendaData(past: boolean = false) {
   return data;
 }
 
+function formatDate(date: DatePropertyItemObjectResponse['date']) {
+
+  return dayjs(date.start).format('DD/MM/YYYY')
+}
+
 async function EventRow({
   event
 }: {
@@ -77,26 +83,35 @@ async function EventRow({
           </h1>
         </div>
 
-        <div>
-          <p className="text-slate-500 text-small text-end">
-            Le
+        <div className="text-slate-500 text-sm text-end">
+          <p className="italic font-semibold">Date</p>
+          <p className="">
             <NotionAsset
               assetRequest={{
                 object: 'page',
                 page: event,
                 field: 'properties',
-                propertyName: 'Date'
-              }} />
+                propertyName: 'Date',
+              }}
+              dateFormat={{
+                dateFormat: 'DD/MM/YYYY',
+                hourFormat: 'HH[h]mm',
+                textStart: 'Du',
+                textEnd: 'au',
+                textHour: 'à',
+              }}
+            />
           </p>
-          <p className="text-slate-500 text-end">
-            Lieu:
+          <p className="italic font-semibold">Lieu</p>
+          <p className="">
             <NotionAsset
               assetRequest={{
                 object: 'page',
                 page: event,
                 field: 'properties',
                 propertyName: 'Lieu'
-              }} />
+              }}
+            />
           </p>
         </div>
       </div>

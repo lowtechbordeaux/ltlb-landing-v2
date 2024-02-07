@@ -1,6 +1,6 @@
 import { reduceRichText } from "@/lib/notion"
 import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints"
-import NotionImage from "./NotionImage"
+import { NotionImage } from "@/components/notion";
 
 export default function NotionBlock({ block, className }: { block: BlockObjectResponse, className?: string }) {
     switch (block.type) {

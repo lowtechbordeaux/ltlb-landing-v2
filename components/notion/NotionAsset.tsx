@@ -1,13 +1,21 @@
 import { AssetRequest, reduceRichText } from "@/lib/notion"
-import NotionImage from "./NotionImage"
+import { NotionImage } from "@/components/notion";
+import dayjs from "dayjs"
 
 type NotionAssetProps = {
     assetRequest: AssetRequest
     className?: string,
-    defaultIcon?: string
+    defaultIcon?: string,
+    dateFormat?: {
+        dateFormat: string,
+        hourFormat?: string,
+        textStart?: string,
+        textEnd?: string,
+        textHour?: string,
+    }
 }
 
-export default async function NotionAsset({ assetRequest, className, defaultIcon }: NotionAssetProps) {
+export default async function NotionAsset({ assetRequest, className, defaultIcon, dateFormat }: NotionAssetProps) {
     if (assetRequest.object !== 'page') {
         throw new Error('NotionAsset: object type ' + assetRequest.object + ' is not supported')
     }
@@ -41,11 +49,31 @@ export default async function NotionAsset({ assetRequest, className, defaultIcon
                 }
                 case 'date': {
                     if (!property.date) throw Error('date property is empty')
-                    if (property.date.start && property.date.end) {
-                        return <span>{property.date.start} - ${property.date.end}</span>
 
+                    const dateStart = dayjs(property.date.start).format(dateFormat?.dateFormat || 'DD/MM/YYYY')
+                    const hourStart = dayjs(property.date.start).hour() !== 0 &&
+                        dayjs(property.date.start).format(dateFormat?.hourFormat || 'hh:mm A')
+
+                    let content
+                    if (!property.date.end) {
+                        content = dateStart
+                        if (hourStart) content += ` ${dateFormat?.textHour || 'at'} ${hourStart}`
+                    } else {
+
+                        const dateEnd = dayjs(property.date.end).format(dateFormat?.dateFormat || 'DD/MM/YYYY')
+                        const hourEnd = dayjs(property.date.end).hour() !== 0 &&
+                            dayjs(property.date.end).format(dateFormat?.hourFormat || 'hh:mm A')
+
+                        content = `${dateFormat?.textStart || 'From'} ${dateStart}`
+                        if (hourStart) content += ` ${dateFormat?.textHour || 'at'} ${hourStart}`
+                        content += ` ${dateFormat?.textEnd || 'To'} ${dateEnd}`
+                        if (hourEnd) content += ` ${dateFormat?.textHour || 'at'} ${hourEnd}`
                     }
-                    return <span className={className}>{new Date(property.date.start).toLocaleString('fr-FR')}</span>
+                    return (
+                        <span className={className}>
+                            {content}
+                        </span>
+                    )
                 }
                 case 'rich_text': {
                     return <span className={className}>{reduceRichText(property.rich_text)}</span>
