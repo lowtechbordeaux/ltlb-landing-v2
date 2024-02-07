@@ -2,8 +2,6 @@ import { queryDatabase, getPageContent, NOTION_PAGE_CACHE_TIME } from "@/lib/not
 import type { DatePropertyItemObjectResponse, PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { NotionBlock, NotionAsset } from "@/components/notion";
 
-import dayjs from "dayjs"
-
 export const revalidate = NOTION_PAGE_CACHE_TIME
 
 async function getAgendaData(past: boolean = false) {
@@ -116,15 +114,6 @@ async function EventRow({
           object: 'page',
           page: event,
           field: 'cover',
-        }}
-        className="w-full my-2"
-      />
-      <NotionAsset
-        assetRequest={{
-          object: 'page',
-          page: event,
-          field: 'properties',
-          propertyName: 'image'
         }}
         className="w-full my-2"
       />
