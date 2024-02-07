@@ -54,58 +54,48 @@ function NavItems({ classNameNav, classNameItem, sheetClose = false }: { classNa
         </nav >
     )
 }
+
 export default function Header() {
     const pathname = usePathname()
     const matchPath = matchPathName(pathname)
-    console.log(matchPath)
     return (
-        <>
-            <Link
-                href="https://jeparticipe.gironde.fr/project/budget-participatif-2023/collect/proposez-vos-projets/proposals/zone-de-fraicheur-urbaine"
-                className='flex px-4 py-2 sm:py-4 justify-center items-center bg-orange-bp  hover:bg-energy-yellow-400 border-b border-dashed'
-            >
-                <Image src="/assets/logos/bee.webp" alt="bee" width={32} height={32} className='mr-4 h-8 w-8' />
-
-                <span className='font-light text-center text-sm sm:text-lg'>Il est temps de voter pour le budget participatif de Gironde !</span>
+        <header className="border-b flex items-center justify-between h-12 sticky top-0 bg-background z-50 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+            <Link href="/" className="flex items-center" prefetch>
+                <div className="h-8 w-32 relative m-4">
+                    <Image
+                        src="/assets/logos/ltlb_full_transparent.png"
+                        alt="ltlb logo"
+                        fill
+                        className="object-contain"
+                    />
+                </div>
             </Link>
-            <header className="border-b flex items-center justify-between h-12 sticky top-0 bg-background z-50 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-                <Link href="/" className="flex items-center" prefetch>
-                    <div className="h-8 w-32 relative m-4">
-                        <Image
-                            src="/assets/logos/ltlb_full_transparent.png"
-                            alt="ltlb logo"
-                            fill
-                            className="object-contain"
+            <Sheet>
+                <SheetTrigger className="flex sm:hidden items-center" asChild>
+                    <Button variant="ghost">
+                        <span>{matchPath ? matchPath[0] : 'unmatch'}</span>
+                        <Menu className="ml-2" />
+                    </Button>
+                </SheetTrigger>
+                <SheetContent className="w-full max-w-[400px] sm:max-w-[540px] p-0">
+                    <SheetHeader className="p-4">
+                        <SheetTitle className="mb-4">Menu</SheetTitle>
+                        <SheetDescription>
+                        </SheetDescription>
+                    </SheetHeader>
+                    <div className="inset-x-0">
+                        <NavItems
+                            classNameNav="flex flex-col justify-center text-end divide-y inset-y-0"
+                            classNameItem="py-2 text-xl px-8"
+                            sheetClose
                         />
                     </div>
-                </Link>
-                <Sheet>
-                    <SheetTrigger className="flex sm:hidden items-center" asChild>
-                        <Button variant="ghost">
-                            <span>{matchPath ? matchPath[0] : 'unmatch'}</span>
-                            <Menu className="ml-2" />
-                        </Button>
-                    </SheetTrigger>
-                    <SheetContent className="w-full max-w-[400px] sm:max-w-[540px] p-0">
-                        <SheetHeader className="p-4">
-                            <SheetTitle className="mb-4">Menu</SheetTitle>
-                            <SheetDescription>
-                            </SheetDescription>
-                        </SheetHeader>
-                        <div className="inset-x-0">
-                            <NavItems
-                                classNameNav="flex flex-col justify-center text-end divide-y inset-y-0"
-                                classNameItem="py-2 text-xl px-8"
-                                sheetClose
-                            />
-                        </div>
-                    </SheetContent>
-                </Sheet>
-                <NavItems
-                    classNameNav="hidden sm:flex h-full items-center text-sm divide-x"
-                    classNameItem="px-2 h-full flex items-center"
-                />
-            </header>
-        </>
+                </SheetContent>
+            </Sheet>
+            <NavItems
+                classNameNav="hidden sm:flex h-full items-center text-sm divide-x"
+                classNameItem="px-2 h-full flex items-center"
+            />
+        </header>
     );
 }

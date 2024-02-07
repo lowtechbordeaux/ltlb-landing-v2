@@ -3,6 +3,7 @@ import "./globals.css";
 import "./fonts.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Banner from "@/components/Banner";
 
 export const metadata: Metadata = {
   title: "Low-tech Lab Bordeaux",
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-white font-sans">
+        <Banner />
         <Header />
         {children}
         <Footer />
