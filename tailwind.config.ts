@@ -1,10 +1,12 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
-const config: Config = {
+const config = {
+  darkMode: ["class"],
   content: [
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
   ],
+  prefix: "",
   theme: {
     fontFamily: {
       serif: ["Permanent Marker", "serif"],
@@ -18,6 +20,9 @@ const config: Config = {
         sm: "4rem",
         lg: "4rem",
         xl: "8rem",
+      },
+      screens: {
+        "2xl": "1400px",
       },
     },
     extend: {
@@ -160,15 +165,9 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-      backgroundImage: {
-        instagram: "url('/assets/icons/instagram.png')",
-        twitter: "url('/assets/icons/twitter.png')",
-        youtube: "url('/assets/icons/youtube.png')",
-        facebook: "url('/assets/icons/facebook.png')",
-        discord: "url('/assets/icons/discord.png')",
-      },
     },
   },
-  plugins: [],
-};
-export default config;
+  plugins: [require("tailwindcss-animate")],
+} satisfies Config
+
+export default config

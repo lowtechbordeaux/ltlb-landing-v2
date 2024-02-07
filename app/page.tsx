@@ -7,14 +7,6 @@ export default function Home() {
   return (
     <main className="flex flex-col">
 
-      <Link
-        href="https://jeparticipe.gironde.fr/project/budget-participatif-2023/collect/proposez-vos-projets/proposals/zone-de-fraicheur-urbaine"
-        className='flex p-4 justify-center items-center bg-orange-bp  hover:bg-energy-yellow-400 border-b border-dashed'
-      >
-        <Image src="/assets/logos/bee.webp" alt="bee" width={64} height={64} className='mr-4' />
-
-        <span className='font-light text-center text-lg'>Il est temps de voter pour le budget participatif de Gironde !</span>
-      </Link>
       <div className=" text-white bg-greeny-1">
         <div className="container py-8">
           <h2 className="mb-4">
