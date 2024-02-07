@@ -1,5 +1,6 @@
 import { reduceRichText } from "@/lib/notion"
 import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import NotionImage from "./NotionImage"
 
 export default function NotionBlock({ block, className }: { block: BlockObjectResponse, className?: string }) {
     switch (block.type) {
@@ -16,14 +17,16 @@ export default function NotionBlock({ block, className }: { block: BlockObjectRe
             return <h3 className={className}>{reduceRichText(block.heading_3.rich_text)}</h3>
         }
         case 'image': {
-            let url
-            if (block.image.type === 'external') {
-                url = block.image.external.url
-            }
-            if (block.image.type === 'file') {
-                url = block.image.file.url
-            }
-            return <img className={className} src={url} alt="notion block image" />
+            return (
+                <NotionImage
+                    assetRequest={{
+                        object: 'block',
+                        block: block,
+                        field: 'image'
+                    }}
+                    className={className}
+                />
+            )
         }
     }
 

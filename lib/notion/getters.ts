@@ -22,6 +22,13 @@ export async function getPage(pageId: string): Promise<PageObjectResponse> {
     }
     return page;
 }
+export async function getBlock(blockId: string): Promise<BlockObjectResponse> {
+    const block = await notion.blocks.retrieve({ block_id: blockId });
+    if (!isFullBlock(block)) {
+        throw new Error('didnot receive full block')
+    }
+    return block;
+}
 export async function getPageContent(pageId: string): Promise<Array<BlockObjectResponse>> {
     const blockList = await notion.blocks.children.list({ block_id: pageId });
     return blockList.results.filter(isFullBlock);

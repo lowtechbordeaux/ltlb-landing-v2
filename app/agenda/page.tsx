@@ -1,8 +1,9 @@
-import NotionProperty from "@/components/notion/NotionProperty";
-import { queryDatabase, getPageContent, renderPageEmoji } from "@/lib/notion";
+import { queryDatabase, getPageContent, NOTION_PAGE_CACHE_TIME } from "@/lib/notion";
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import NotionBlock from "@/components/notion/NotionBlock";
-import NotionImage, { pageHasImage } from "@/components/notion/NotionImage";
+import NotionAsset from "@/components/notion/NotionAsset";
+
+export const revalidate = NOTION_PAGE_CACHE_TIME
 
 async function getAgendaData(past: boolean = false) {
   const dateFilter = past ?
@@ -33,7 +34,7 @@ async function getAgendaData(past: boolean = false) {
     [
       {
         property: 'Date',
-        direction: 'ascending'
+        direction: past ? 'descending' : 'ascending'
       }
     ]
   );
@@ -51,36 +52,80 @@ async function EventRow({
 
   return (
     <div
-      className='w-full border flex px-4 py-6 cursor-pointer'
+      className='w-full border flex flex-col px-4 py-6'
     >
-      <div className='flex items-center mr-4'>
-      </div>
-      <div className='flex-1 flex flex-col'>
-        <h1>
-          <span className="mr-2">{renderPageEmoji(event, '📅')}</span>
-          <NotionProperty property={event.properties['Nom']} />
-        </h1>
-        <p className="text-slate-500 text-end">
-          Le <NotionProperty property={event.properties['Date']} />
-        </p>
-        <p className="text-slate-500 text-end">
-          Lieu: <NotionProperty property={event.properties['Lieu']} />
-        </p>
-        {pageHasImage(event.properties['image']) &&
-          <NotionImage
-            property={event.properties['image']}
-            className="w-full my-2"
-          />
-        }
-
-        <div className="flex flex-col">
-          {blocks.map((block) => (
-            <NotionBlock
-              key={block.id}
-              block={block}
-              className="w-full"
-            />))}
+      <div className='flex flex-row justify-between'>
+        <div>
+          <h1>
+            <NotionAsset
+              assetRequest={{
+                object: 'page',
+                page: event,
+                field: 'icon',
+              }}
+              defaultIcon="📅"
+              className="mr-2"
+            />
+            <NotionAsset
+              assetRequest={{
+                object: 'page',
+                page: event,
+                field: 'properties',
+                propertyName: 'Nom'
+              }}
+            />
+          </h1>
         </div>
+
+        <div>
+          <p className="text-slate-500 text-small text-end">
+            Le
+            <NotionAsset
+              assetRequest={{
+                object: 'page',
+                page: event,
+                field: 'properties',
+                propertyName: 'Date'
+              }} />
+          </p>
+          <p className="text-slate-500 text-end">
+            Lieu:
+            <NotionAsset
+              assetRequest={{
+                object: 'page',
+                page: event,
+                field: 'properties',
+                propertyName: 'Lieu'
+              }} />
+          </p>
+        </div>
+      </div>
+
+      <NotionAsset
+        assetRequest={{
+          object: 'page',
+          page: event,
+          field: 'cover',
+        }}
+        className="w-full my-2"
+      />
+      <NotionAsset
+        assetRequest={{
+          object: 'page',
+          page: event,
+          field: 'properties',
+          propertyName: 'image'
+        }}
+        className="w-full my-2"
+      />
+
+      <div className="flex flex-col space-y-2">
+        {blocks.map((block) => (
+          <NotionBlock
+            key={block.id}
+            block={block}
+            className="w-full"
+          />))}
       </div>
     </div>
   )
