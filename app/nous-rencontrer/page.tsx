@@ -6,7 +6,7 @@ export default function NousRencontrer() {
   return (
     <main className="container py-4">
 
-      <h2 className="font-serif text-xl font-medium my-4">Nous rencontrer</h2>
+      <h2 className="my-4">Nous rencontrer</h2>
 
       <p>
         Tous les <b>mercredis soir</b> (sauf exception), nous organisons des
@@ -16,7 +16,7 @@ export default function NousRencontrer() {
         amplement l'association avec les bénévoles. N'hésitez pas à nous
         contacter pour en savoir plus !
       </p>
-      <h2 className="font-serif text-xl font-medium my-4">En ligne</h2>
+      <h2 className="my-4">En ligne</h2>
       <p>
         N'hesitez pas à prendre contact avec nous via nos réseaux.
         <br />
@@ -56,7 +56,7 @@ export default function NousRencontrer() {
         </Link>
       </div>
 
-      <h2 className="font-serif text-xl font-medium my-4">Où ?</h2>
+      <h2 className="my-4">Où ?</h2>
       <p>
         Notre atelier est situé à la Cité Bleue, au
 

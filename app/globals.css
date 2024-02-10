@@ -72,7 +72,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
   }
 }
 
@@ -85,14 +85,14 @@
 
 @layer base {
   h1 {
-    @apply text-2xl font-semibold;
+    @apply font-display text-2xl font-semibold;
   }
 
   h2 {
-    @apply font-serif uppercase text-xl font-bold;
+    @apply font-display uppercase text-xl font-bold;
   }
 
   h3 {
-    @apply text-xl font-light;
+    @apply font-display text-lg font-light;
   }
 }

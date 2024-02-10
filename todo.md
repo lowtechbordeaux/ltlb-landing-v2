@@ -1,2 +1,3 @@
 - metadatas
 - image optimisation from notion
+- github

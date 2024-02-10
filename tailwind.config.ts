@@ -9,9 +9,9 @@ const config = {
   prefix: "",
   theme: {
     fontFamily: {
-      serif: ["Permanent Marker", "serif"],
-      mono: ["High Spirited", "mono"],
-      sans: ["Metropolis", "Helvetica", "sans-serif"],
+      marker: ["var(--font-permanent-marker)", "serif"],
+      display: ["var(--font-oswald)", "sans-serif"],
+      body: ["var(--font-montserrat)", "Helvetica", "sans-serif"],
     },
     container: {
       center: true,
