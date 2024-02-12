@@ -57,6 +57,16 @@ export default function Projets() {
         </Link>
 
       </Encard>
+      <div
+        className="relative w-full max-w-screen-md aspect-square"
+      >
+        <Image
+          src="/assets/pics/clim_schema.jpg"
+          alt="schema clim lowtech"
+          fill
+          className='object-contain'
+        />
+      </div>
 
       <div className='flex w-full justify-center bg-persian-green-500'>
         <div className='w-[448px] max-w-full'>

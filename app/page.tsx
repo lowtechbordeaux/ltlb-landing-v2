@@ -24,7 +24,7 @@ export default function Home() {
       <Encard title="Makerspace" imageSrc="/assets/pics/DSC03758.JPG">
         <ul className='list-disc list-inside space-y-1'>
           <li>Centre de pratique avec outillages professionnels mutualisés, formations, stages et ateliers.</li>
-          <li>Ateliers hebdomadaires de conception et fabrication de low-tech avec les adhérent·es : tous les mercredis de 18h à 21h/</li>
+          <li>Ateliers hebdomadaires de conception et fabrication de low-tech avec les adhérent·es : tous les mercredis de 18h à 21h</li>
           <li>Encadrement d’étudiant·es de l’enseignement supérieur.</li>
         </ul>
       </Encard>

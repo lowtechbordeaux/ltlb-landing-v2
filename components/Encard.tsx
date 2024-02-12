@@ -23,7 +23,7 @@ export function Encard({ title, className, imageSrc, imageComponent, href, child
                     >
                         <div
                             className={clsx(
-                                'relative w-full md:w-1/2 h-64 md:h-[20rem] md:aspect-square ',
+                                'relative w-full md:w-1/2 h-64 md:h-[20rem] md:aspect-square',
                                 href && 'group-hover:brightness-90'
                             )}
                         >
