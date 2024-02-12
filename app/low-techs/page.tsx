@@ -26,8 +26,8 @@ export default async function LowTechs() {
   const lowtechs = await getLowTechsData()
 
   return (
-    <main className='flex flex-col items-center'>
-      <h2 className='my-4'>
+    <div className='flex flex-col items-center'>
+      <h2>
         Low-techs réalisées
       </h2>
 
@@ -80,6 +80,6 @@ export default async function LowTechs() {
           <p className="text-center">Aucun element à afficher</p>
         }
       </div>
-    </main>
+    </div>
   );
 }

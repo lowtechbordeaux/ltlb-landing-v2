@@ -1,9 +1,9 @@
 
 export default function Footer() {
     return (
-        <footer className="mb-8">
-            <div className="w-full border border-dashed border-zinc-300 my-8"></div>
-            <div className="container">
+        <footer className="">
+            <div className="w-full border border-dashed border-zinc-300"></div>
+            <div className="container py-8">
                 <div className="flex justify-center space-x-8">
                     <img
                         src="/assets/logos/UE-FSE.jpg"

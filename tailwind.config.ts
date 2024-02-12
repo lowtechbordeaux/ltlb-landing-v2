@@ -15,15 +15,6 @@ const config = {
     },
     container: {
       center: true,
-      padding: {
-        DEFAULT: "2rem",
-        sm: "4rem",
-        lg: "4rem",
-        xl: "8rem",
-      },
-      screens: {
-        "2xl": "1400px",
-      },
     },
     extend: {
       colors: {

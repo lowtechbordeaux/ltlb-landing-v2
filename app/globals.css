@@ -89,10 +89,14 @@
   }
 
   h2 {
-    @apply font-display uppercase text-xl font-bold;
+    @apply font-display uppercase text-xl font-bold mb-4;
   }
 
   h3 {
     @apply font-display text-lg font-light;
+  }
+
+  p {
+    @apply mb-2 last:mb-0 text-sm;
   }
 }

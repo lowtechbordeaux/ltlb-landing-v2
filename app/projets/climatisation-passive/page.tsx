@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 export default function Projets() {
   return (
-    <main className='flex flex-col items-center'>
+    <div className='flex flex-col items-center'>
 
-      <h2 className='my-4'>
+      <h2>
         Climatisation passive
       </h2>
 
@@ -62,6 +62,6 @@ export default function Projets() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

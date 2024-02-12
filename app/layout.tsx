@@ -23,7 +23,9 @@ export default function RootLayout({
       <body className="bg-white font-sans text-base">
         <Banner />
         <Header />
-        {children}
+        <main className="flex flex-col items-center ">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

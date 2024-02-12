@@ -137,7 +137,7 @@ export default async function LowTechDetail({ params }: { params: { slug: string
 
   return (
     <main className='flex flex-col items-center'>
-      <h2 className='my-4'>
+      <h2>
         Low-tech réalisée
       </h2>
 

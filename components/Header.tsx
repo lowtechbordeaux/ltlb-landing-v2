@@ -18,8 +18,8 @@ import { Menu } from "lucide-react"
 
 const routes = [
     ["L'asso", "/"],
-    ["Agenda", "/agenda"],
-    ["Réalisations", "/low-techs"],
+    //["Agenda", "/agenda"],
+    //["Réalisations", "/low-techs"],
     ["Nos Projets", "/projets"],
     ["Nous rencontrer", "/nous-rencontrer"],
 ]
@@ -44,11 +44,14 @@ function NavItems({ classNameNav, classNameItem, sheetClose = false }: { classNa
                         href={href}
                         className={clsx(
                             'py-2',
-                            matchPath && matchPath[1] === href && "text-energy-yellow-600",
+                            matchPath && matchPath[1] === href && "text-persian-green-600",
                             classNameItem,
                         )}
                         prefetch>
-                        {label}
+                        <h2
+                            className="mb-0 text-base font-semibold"
+                        >{label}
+                        </h2>
                     </Link>
                 </ConditionalWrapper>
             ))
@@ -61,7 +64,7 @@ export default function Header() {
     const pathname = usePathname()
     const matchPath = matchPathName(pathname)
     return (
-        <header className="border-b flex items-center justify-between h-12 sticky top-0 bg-background z-50 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+        <header className="flex items-center justify-between h-12 sticky top-0 bg-background z-50 backdrop-blur supports-[backdrop-filter]:bg-background/80">
             <Link href="/" className="flex items-center" prefetch>
                 <div className="h-8 w-32 relative m-4">
                     <Image
@@ -75,7 +78,9 @@ export default function Header() {
             <Sheet>
                 <SheetTrigger className="flex sm:hidden items-center" asChild>
                     <Button variant="ghost">
-                        <span>{matchPath ? matchPath[0] : 'unmatch'}</span>
+                        <h2 className="mb-0 text-base font-semibold">
+                            {matchPath ? matchPath[0] : 'unmatch'}
+                        </h2>
                         <Menu className="ml-2" />
                     </Button>
                 </SheetTrigger>

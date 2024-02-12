@@ -4,8 +4,8 @@ import Link from 'next/link'
 
 export default function Follow({ className }: { className?: string }) {
     return (
-        <div className={clsx('py-2', className)}>
-            <h2 className="font-marker text-xl text-center font-medium my-4">
+        <div className={clsx('bg-background py-8', className)}>
+            <h2 className="font-marker text-center font-medium">
                 Suivre les actualités
             </h2>
             <div

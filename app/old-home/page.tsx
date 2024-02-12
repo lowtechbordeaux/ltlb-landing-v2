@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 import Link from 'next/link'
 import Follow from '@/components/Follow'
 
@@ -9,7 +7,7 @@ export default function Home() {
 
       <div className=" text-white bg-greeny-1">
         <div className="container py-8">
-          <h2 className="mb-4">
+          <h2>
             Qui sommes-nous ?
           </h2>
 
