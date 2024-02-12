@@ -29,6 +29,7 @@ export default function Page() {
                 {routes.map(([label, href]) => (
                     <Link
                         href={href}
+                        key={href}
                         className="underline"
                     >
                         {label}

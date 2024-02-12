@@ -17,7 +17,7 @@ export default function Projets() {
           '/projets/tiny-house-low-tech'
         ],*/
       ].map(([title, description, image, alt, href]) => (
-        <Encard title={title} image={image} href={href}>
+        <Encard title={title} image={image} href={href} key={href}>
           <p>
             {description}
           </p>

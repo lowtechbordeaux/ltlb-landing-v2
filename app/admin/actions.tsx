@@ -9,5 +9,7 @@ export async function refreshCache(formData: FormData) {
     }
 
     revalidatePath('/agenda');
+    revalidatePath('/low-techs');
+    revalidatePath('/low-techs/[slug]/page');
     redirect('/')
 }   
