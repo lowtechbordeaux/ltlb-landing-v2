@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export function Encard({ title, className, image, href, children }: { title: string, className?: string, image: string, href?: string, children: React.ReactNode }) {
+export function Encard({ title, className, imageSrc, imageComponent, href, children }: { title?: string, className?: string, imageSrc?: string, imageComponent?: React.ReactNode, href?: string, children: React.ReactNode }) {
     return (
         <div className="group w-full">
             <ConditionalWrapper
@@ -27,12 +27,14 @@ export function Encard({ title, className, image, href, children }: { title: str
                                 href && 'group-hover:brightness-90'
                             )}
                         >
-                            <Image src={image} alt={title} fill className="object-cover" />
+                            {imageSrc ? <Image src={imageSrc} alt={title || imageSrc} fill className="object-cover" /> : imageComponent}
                         </div>
                         <div className="flex flex-col md:w-1/2 h-64 md:h-full justify-center text-white px-4 md:px-8 py-8">
-                            <h2>
-                                {title}
-                            </h2>
+                            {title &&
+                                <h2>
+                                    {title}
+                                </h2>
+                            }
 
                             <div className='text-sm'>
                                 {children}
