@@ -1,4 +1,6 @@
 import { Encard } from '@/components/Encard';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function Projets() {
   return (
@@ -18,9 +20,17 @@ export default function Projets() {
         ],*/
       ].map(([title, description, image, alt, href]) => (
         <Encard title={title} imageSrc={image} href={href} key={href}>
-          <p>
-            {description}
-          </p>
+          {description.split('\n').map((line, index) => (
+            <p key={index} className="mb-1"> {line} </p>
+          ))}
+          <Link
+            href={href}
+            className='flex justify-center mt-4'
+          >
+            <Button className='bg-orange-bp group-hover:bg-energy-yellow-500'>
+              Voir plus
+            </Button>
+          </Link>
         </Encard>
       ))}
 

@@ -35,10 +35,6 @@ export default function Home() {
           <li>Diffuser en open source avec des outils collaboratifs.</li>
         </ul>
       </Encard>
-
-
-      <Follow className='w-full' />
-
     </div>
   );
 }

@@ -46,16 +46,15 @@ export default function Projets() {
         <p>
           Préparez-vous à un <b>été frais sans compromis</b>. Soutenez notre projet de zones de fraîcheur urbaines en votant pour nous au Budget Participatif du Département de la Gironde.
         </p>
-        <div className='flex justify-center mt-2'>
-          <Link
-            href="https://jeparticipe.gironde.fr/project/budget-participatif-2023/collect/proposez-vos-projets/proposals/zone-de-fraicheur-urbaine"
-            target='_blank'
-          >
-            <Button className='bg-orange-bp hover:bg-energy-yellow-400'>
-              Votez !
-            </Button>
-          </Link>
-        </div>
+        <Link
+          href="https://jeparticipe.gironde.fr/project/budget-participatif-2023/collect/proposez-vos-projets/proposals/zone-de-fraicheur-urbaine"
+          target='_blank'
+          className='flex justify-center mt-4'
+        >
+          <Button className='bg-orange-bp hover:bg-energy-yellow-500'>
+            Votez !
+          </Button>
+        </Link>
 
       </Encard>
 

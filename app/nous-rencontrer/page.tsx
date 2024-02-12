@@ -5,6 +5,17 @@ import Link from 'next/link'
 export default function NousRencontrer() {
   return (
     <div className="w-full flex flex-col items-center">
+      <div className='flex justify-center w-full bg-persian-green-500'>
+        <div className='flex w-full max-w-screen-xl h-[20rem] bg-persian-green-500'>
+          <div className='relative hidden md:flex md:w-1/2'>
+            <Image src="/assets/pics/atelier_wicking_main.jpg" alt="atelier_wicking_main" fill className="object-cover" />
+          </div>
+          <div className='relative w-full md:w-1/2'>
+            <Image src="/assets/pics/DSC03618.JPG" alt="atelier_wicking_main" fill className="object-cover" />
+          </div>
+        </div>
+      </div>
+
       <div className="flex flex-col items-center w-full bg-persian-green-600 py-8 text-background px-4">
         <h2>Nous rencontrer</h2>
 
@@ -31,13 +42,14 @@ export default function NousRencontrer() {
         </p>
       </div>
       <div className='flex justify-center w-full bg-persian-green-500'>
-        <div className='flex w-full max-w-screen-xl h-[20rem] bg-persian-green-500'>
-          <div className='relative hidden md:flex md:w-1/2'>
-            <Image src="/assets/pics/atelier_wicking_main.jpg" alt="atelier_wicking_main" fill className="object-cover" />
-          </div>
-          <div className='relative w-full md:w-1/2'>
-            <Image src="/assets/pics/DSC03618.JPG" alt="atelier_wicking_main" fill className="object-cover" />
-          </div>
+        <div className='w-full max-w-screen-xl h-[450px] bg-persian-green-500'>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d975.6402104009594!2d-0.5461374303020609!3d44.87215159819189!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDTCsDUyJzE5LjgiTiAwwrAzMic0My44Ilc!5e1!3m2!1sfr!2sfr!4v1706965800160!5m2!1sfr!2sfr"
+            width="100%"
+            height="450"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
 
@@ -63,18 +75,6 @@ export default function NousRencontrer() {
           </Link>
         </p>
       </div>
-      <div className='flex justify-center w-full bg-persian-green-500'>
-        <div className='w-full max-w-screen-xl h-[450px] bg-persian-green-500'>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d975.6402104009594!2d-0.5461374303020609!3d44.87215159819189!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDTCsDUyJzE5LjgiTiAwwrAzMic0My44Ilc!5e1!3m2!1sfr!2sfr!4v1706965800160!5m2!1sfr!2sfr"
-            width="100%"
-            height="450"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-      </div>
-      <Follow />
     </div >
   );
 }

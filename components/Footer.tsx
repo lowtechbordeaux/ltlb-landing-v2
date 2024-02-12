@@ -1,7 +1,9 @@
+import Follow from "./Follow"
 
 export default function Footer() {
     return (
         <footer className="">
+            <Follow className='bg-persian-green-900 py-8' />
             <div className="w-full border border-dashed border-zinc-300"></div>
             <div className="container py-8">
                 <div className="flex justify-center space-x-8">
@@ -17,6 +19,6 @@ export default function Footer() {
                     />
                 </div>
             </div>
-        </footer>
+        </footer >
     );
 }
