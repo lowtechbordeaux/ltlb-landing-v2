@@ -1,6 +1,12 @@
 import { queryDatabase, getPageContent, NOTION_PAGE_CACHE_TIME } from "@/lib/notion";
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { NotionBlock, NotionAsset } from "@/components/notion";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Agenda - Low-tech Lab Bordeaux",
+  description: "Les évenement organisés par le Low-tech Lab Bordeaux",
+};
 
 export const revalidate = NOTION_PAGE_CACHE_TIME
 

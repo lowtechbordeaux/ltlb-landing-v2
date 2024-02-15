@@ -1,6 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: "Tiny House Low Tech - Low-tech Lab Bordeaux",
+  description: 'Nous avons pour projet de construire une tiny house completement équipée de low-techs',
+};
 export default function Projets() {
   return (
     <div className='flex flex-col items-center'>

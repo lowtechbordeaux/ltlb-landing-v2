@@ -2,6 +2,12 @@ import { Encard } from '@/components/Encard';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image'
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Climatisation Passive - Low-tech Lab Bordeaux",
+  description: 'Nous avons développé un système de climatisation passive pour les bâtiments.\n Fonctionnant uniquement à l\'eau, il permet de rafraîchir les pièces en été.',
+};
 
 export default function Projets() {
   return (

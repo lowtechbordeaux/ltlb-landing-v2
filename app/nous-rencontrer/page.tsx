@@ -1,6 +1,11 @@
-import Follow from '@/components/Follow';
 import Image from 'next/image'
 import Link from 'next/link'
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Nous rencontrer - Low-tech Lab Bordeaux",
+  description: "Tous les mercredis soir de 18h à 21h, nous organisons des ateliers dans nos locaux. Ce sont des temps conviviaux où vous pourrez découvrir plus amplement l'association avec les bénévoles. N'hésitez pas à nous contacter pour en savoir plus !",
+};
 
 export default function NousRencontrer() {
   return (

@@ -1,4 +1,4 @@
-import { AssetRequest } from "@/lib/notion";
+import { AssetRequest, FileType, getFileUrl } from "@/lib/notion";
 
 type NotionImageProps = {
     assetRequest: AssetRequest
@@ -9,7 +9,7 @@ type NotionImageProps = {
 export default async function NotionImage({ assetRequest, className, defaultImage }: NotionImageProps) {
     // Always re-ask for the page or block to get the recent signed urls
 
-    let file
+    let file: FileType = null
 
     if (assetRequest.object === 'page') {
         if (assetRequest.field === 'properties') {
@@ -33,10 +33,7 @@ export default async function NotionImage({ assetRequest, className, defaultImag
     let alt = url
 
     if (file) {
-        if (file.type === 'external')
-            url = file.external.url
-        if (file.type === 'file')
-            url = file.file.url
+        url = getFileUrl(file)
         if ('name' in file)
             alt = file.name
     }

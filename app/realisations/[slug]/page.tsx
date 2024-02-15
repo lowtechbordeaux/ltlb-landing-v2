@@ -1,4 +1,4 @@
-import { queryDatabase, getPageContent, NOTION_PAGE_CACHE_TIME, reduceRichTextProperty, getProperty } from "@/lib/notion";
+import { queryDatabase, getPageContent, NOTION_PAGE_CACHE_TIME, reduceRichText, reduceRichTextProperty, getProperty, getFileUrl } from "@/lib/notion";
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { NotionBlock, NotionAsset } from "@/components/notion";
 import {
@@ -8,9 +8,26 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-
+import { Metadata } from 'next';
 
 export const revalidate = NOTION_PAGE_CACHE_TIME
+
+export async function generateMetadata(
+  { params }: { params: { slug: string } },
+): Promise<Metadata> {
+  const lowtech = await getLowTechData(params.slug)
+
+  const title = reduceRichText(getProperty(lowtech, 'Nom', 'title').title)
+  const images = getProperty(lowtech, 'Images', 'files').files
+    .map(f => getFileUrl(f)).filter(f => !!f) as string[]
+
+  return {
+    title,
+    openGraph: {
+      images, // TODO images from notion won't work after 1 hour, may be problematic for SEO's cache
+    },
+  }
+}
 
 export async function generateStaticParams() {
   const data = await queryDatabase(

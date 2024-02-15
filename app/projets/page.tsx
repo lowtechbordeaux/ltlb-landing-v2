@@ -1,6 +1,12 @@
 import { Encard } from '@/components/Encard';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Projets - Low-tech Lab Bordeaux",
+  description: "Les projets du Low-tech Lab Bordeaux",
+};
 
 export default function Projets() {
   return (

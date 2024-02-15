@@ -1,6 +1,11 @@
-import Follow from '@/components/Follow'
-
 import { Encard } from '@/components/Encard'
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "L'asso - Low-tech Lab Bordeaux",
+  description: "Nous sommes une association qui croit au pouvoir de l’innovation utile, accessible et durable pour répondre aux enjeux d’aujourd’hui et de demain : les low-technologies offrent à chacun·e et partout, les moyens de répondre à ses besoins dans le respect des Humain·es et de la Planète ! ",
+};
+
 
 export default function Home() {
   return (

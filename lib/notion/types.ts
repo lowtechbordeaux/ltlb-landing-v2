@@ -18,3 +18,5 @@ export type AssetRequest =
 export type Property = PageObjectResponse['properties'][string]
 export type PropertyOf<T> = Property & { type: T }
 export type PropertyType = Property['type']
+
+export type FileType = PropertyOf<'files'>['files'][0] | ImageBlockObjectResponse['image'] | PageObjectResponse['cover']
