@@ -5,7 +5,7 @@ export default function Header() {
     return (
         <Link
             href="https://jeparticipe.gironde.fr/project/budget-participatif-2023/collect/proposez-vos-projets/proposals/zone-de-fraicheur-urbaine"
-            className='flex px-4 py-2 sm:py-2 justify-center items-center bg-orange-bp  hover:bg-energy-yellow-400 border-b border-dashed'
+            className='flex px-4 py-2 sm:py-2 justify-center items-center bg-orange-bp  hover:bg-energy-yellow-400 border border-dashed'
             target='_blank'
         >
             <Image src="/assets/logos/bee.webp" alt="bee" width={28} height={28} className='mr-4' />

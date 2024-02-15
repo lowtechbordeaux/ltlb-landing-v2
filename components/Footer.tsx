@@ -1,10 +1,11 @@
 import Follow from "./Follow"
+import Mailchimp from "./Mailchimp";
 
 export default function Footer() {
     return (
         <footer className="">
             <Follow className='bg-persian-green-900 py-8' />
-            <div className="w-full border border-dashed border-zinc-300"></div>
+            <Mailchimp />
             <div className="container py-8">
                 <div className="flex flex-wrap justify-center">
                     <div

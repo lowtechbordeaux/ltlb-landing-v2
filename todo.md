@@ -1,3 +1,3 @@
 - metadatas
-- image optimisation from notion
-- github
+- netlify reload
+- data notion (réalisations, agenda)
