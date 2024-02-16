@@ -35,7 +35,7 @@ export default function NousRencontrer() {
           <b>
             Des moments conviviaux  entre adhérent·es, où nous conceptualisons et fabriquons collectivement des low-techs.
           </b>
-          N’hésitez pas à passer nous voir pour découvrir plus amplement l'association et rencontrer les bénévoles !
+          &nbsp;N’hésitez pas à passer nous voir pour découvrir plus amplement l'association et rencontrer les bénévoles !
         </p>
         <p className='w-full max-w-screen-sm'>
           Notre atelier est situé à la <b>Cité Bleue</b>, au{' '}

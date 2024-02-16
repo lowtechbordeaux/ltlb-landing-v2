@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "L'asso - Low-tech Lab Bordeaux",
-  description: "Nous sommes une association qui croit au pouvoir de l’innovation utile, accessible et durable pour répondre aux enjeux d’aujourd’hui et de demain : les low-technologies offrent à chacun·e et partout, les moyens de répondre à ses besoins dans le respect des Humain·es et de la Planète ! ",
+  description: "Nous sommes une association qui croit au pouvoir de l’innovation utile, accessible et durable pour répondre aux enjeux d’aujourd’hui et de demain : les basses technologies offrent à chacun·e et partout, les moyens de répondre à ses besoins dans le respect des Humain·es et de la Planète ! ",
 };
 
 
@@ -14,7 +14,7 @@ export default function Home() {
         <p>
           Nous sommes une association qui croit au
           <b>&nbsp;pouvoir de l’innovation utile, accessible et durable&nbsp;</b>
-          pour répondre aux enjeux d’aujourd’hui et de demain : les low-technologies offrent à chacun·e et partout, les moyens de
+          pour répondre aux enjeux d’aujourd’hui et de demain : les basses technologies offrent à chacun·e et partout, les moyens de
           <b>&nbsp;répondre à ses besoins dans le respect des Humain·es et de la Planète !&nbsp;</b>
         </p>
       </Encard>
