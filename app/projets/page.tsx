@@ -13,7 +13,7 @@ export default function Projets() {
     <div className="flex w-full flex-col items-center">
       {[
         ['Climatisation passive',
-          'Nous avons développé un système de climatisation passive pour les bâtiments.\n Fonctionnant uniquement à l\'eau, il permet de rafraîchir les pièces en été.',
+          'Nous avons développé un système de climatisation passive pour rafraîchir l\'air ambiant, fonctionnant avec les énergies du soleil et du vent combinées à la circulation d\'eau en circuit fermé.',
           '/assets/pics/clim_2_crop.jpg',
           'clim passive',
           '/projets/climatisation-passive'
