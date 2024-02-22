@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Projets() {
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex w-full flex-col items-center'>
 
       <h2 className='w-full bg-persian-green-800 mb-0 py-4 text-center text-background'>
         Climatisation passive
