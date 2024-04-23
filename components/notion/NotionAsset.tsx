@@ -80,8 +80,8 @@ export default async function NotionAsset({ assetRequest, className, defaultIcon
                 case 'rich_text': {
                     const text = reduceRichText(property.rich_text)
 
-                    return text.split('\n').map(line =>
-                        <p className={className}>{line}</p>
+                    return text.split('\n').map((line, index) =>
+                        <p className={className} key={index}>{line}</p>
                     )
                 }
             }
