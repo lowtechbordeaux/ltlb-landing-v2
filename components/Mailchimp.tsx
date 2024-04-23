@@ -22,7 +22,7 @@ export default function Mailchimp({ className }: { className?: string }) {
                     />
                     <input type="hidden" name="tags" value="10694776" />
                     <div aria-hidden="true" className="absolute hidden l-[-5000px]">
-                        <input type="text" name="b_1a6dc02d62ba4c7ff0d03c95a_8c5f545e7c" tabIndex={-1} value="" />
+                        <input type="text" name="b_1a6dc02d62ba4c7ff0d03c95a_8c5f545e7c" tabIndex={-1} value="" readOnly />
                     </div>
                     <Button className="bg-persian-green-900 hover:bg-persian-green-600">S'inscrire à la newsletter</Button>
                 </div>

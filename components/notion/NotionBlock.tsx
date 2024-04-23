@@ -9,18 +9,21 @@ function NotionRichText({ rich_text, className }: { rich_text: Array<RichTextIte
         <ConditionalWrapper
             wrapper={r1.href && (children => (<a href={r1.href || ''} className="underline">{children}</a>))} key={r1.plain_text}
         >
-            <span className={className}>{r1.plain_text}</span>
+            {r1.plain_text.split('\n').map(line =>
+                <p className={className}>{line}</p>
+            )}
         </ ConditionalWrapper >
     ))
 }
 
 export default function NotionBlock({ block, className }: { block: BlockObjectResponse, className?: string }) {
+    console.log(block)
     switch (block.type) {
         case 'paragraph': {
             return (
-                <p className={className}>
+                <div className={className}>
                     <NotionRichText rich_text={block.paragraph.rich_text} />
-                </p>
+                </div>
             )
         }
         case 'heading_1': {

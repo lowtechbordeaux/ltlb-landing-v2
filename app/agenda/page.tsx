@@ -59,9 +59,9 @@ async function EventRow({
     <div
       className='w-full flex flex-col px-4 py-6'
     >
-      <div className='flex flex-row justify-between'>
-        <div>
-          <h1>
+      <div className='flex  flex-row justify-between'>
+        <div className="flex">
+          <div className="flex flex-col justify-center h-full">
             <NotionAsset
               assetRequest={{
                 object: 'page',
@@ -71,38 +71,40 @@ async function EventRow({
               defaultIcon="📅"
               className="mr-2"
             />
-            <NotionAsset
-              assetRequest={{
-                object: 'page',
-                page: event,
-                field: 'properties',
-                propertyName: 'Nom'
-              }}
-            />
-          </h1>
+          </div>
+          <div>
+            <h1>
+              <NotionAsset
+                assetRequest={{
+                  object: 'page',
+                  page: event,
+                  field: 'properties',
+                  propertyName: 'Nom'
+                }}
+              />
+            </h1>
+            <h2 className="m-0">
+              <NotionAsset
+                assetRequest={{
+                  object: 'page',
+                  page: event,
+                  field: 'properties',
+                  propertyName: 'Date',
+                }}
+                dateFormat={{
+                  dateFormat: 'DD/MM/YYYY',
+                  hourFormat: 'HH[h]mm',
+                  textStart: 'Du',
+                  textEnd: 'au',
+                  textHour: 'à',
+                }}
+              />
+            </h2>
+          </div>
         </div>
 
-        <div className="text-slate-500 text-sm text-end">
-          <p className="italic font-semibold">Date</p>
-          <p className="">
-            <NotionAsset
-              assetRequest={{
-                object: 'page',
-                page: event,
-                field: 'properties',
-                propertyName: 'Date',
-              }}
-              dateFormat={{
-                dateFormat: 'DD/MM/YYYY',
-                hourFormat: 'HH[h]mm',
-                textStart: 'Du',
-                textEnd: 'au',
-                textHour: 'à',
-              }}
-            />
-          </p>
-          <p className="italic font-semibold">Lieu</p>
-          <p className="">
+        <div className="flex items-center text-white-800 text-sm text-end">
+          <div>
             <NotionAsset
               assetRequest={{
                 object: 'page',
@@ -110,9 +112,11 @@ async function EventRow({
                 field: 'properties',
                 propertyName: 'Lieu'
               }}
+              className="p-0 m-0"
             />
-          </p>
+          </div>
         </div>
+
       </div>
 
       <NotionAsset
@@ -132,24 +136,23 @@ async function EventRow({
             className="w-full"
           />))}
       </div>
-    </div>
+    </div >
   )
 }
 
 
-export default async function Projets() {
+export default async function Agenda() {
   const nextEvents = await getAgendaData()
   const pastEvents = await getAgendaData(true)
 
   return (
-    <main className='flex flex-col items-center'>
-      <h2>
-        Agenda
-      </h2>
+    <div className='flex w-full flex-col items-center text-background'>
+      <div className="w-full bg-persian-green-800 py-4 text-center text-background">
+        Événements à venir
+      </div>
 
-      <div className='w-full max-w-2xl'>
-        <h3 className="font-bold ml-4 mb-2">À venir</h3>
-        <div className="w-full border divide-y">
+      <div className="w-full flex justify-center bg-persian-green-600">
+        <div className="w-full max-w-2xl divide-y">
           {nextEvents.length ?
             nextEvents.map((event) => (
               <EventRow event={event} key={event.id} />
@@ -158,9 +161,14 @@ export default async function Projets() {
             <p className="text-center">Aucun évenement à venir</p>
           }
         </div>
+      </div>
 
-        <h3 className="font-bold ml-4 mb-2 mt-8">Passés</h3>
-        <div className="w-full border divide-y">
+      <div className="w-full bg-persian-green-800 py-4 text-center text-background">
+        Événements passés
+      </div>
+
+      <div className="w-full flex justify-center bg-persian-green-500">
+        <div className="w-full max-w-2xl">
           {pastEvents.length ?
             pastEvents.map((event) => (
               <EventRow event={event} key={event.id} />
@@ -170,6 +178,6 @@ export default async function Projets() {
           }
         </div>
       </div>
-    </main>
+    </div>
   );
 }

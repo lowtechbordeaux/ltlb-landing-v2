@@ -36,7 +36,7 @@ export function Encard({ title, className, imageSrc, imageComponent, href, child
                                 </h2>
                             }
 
-                            <div className='text-sm'>
+                            <div className=''>
                                 {children}
                             </div>
                         </div>
