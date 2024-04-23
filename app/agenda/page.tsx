@@ -147,9 +147,9 @@ export default async function Agenda() {
 
   return (
     <div className='flex w-full flex-col items-center text-background'>
-      <div className="w-full bg-persian-green-800 py-4 text-center text-background">
+      <h2 className="w-full m-0 bg-persian-green-800 py-4 text-center text-background">
         Événements à venir
-      </div>
+      </h2>
 
       <div className="w-full flex justify-center bg-persian-green-600">
         <div className="w-full max-w-2xl divide-y">
@@ -163,9 +163,9 @@ export default async function Agenda() {
         </div>
       </div>
 
-      <div className="w-full bg-persian-green-800 py-4 text-center text-background">
+      <h2 className="w-full m-0 bg-persian-green-800 py-4 text-center text-background">
         Événements passés
-      </div>
+      </h2>
 
       <div className="w-full flex justify-center bg-persian-green-500">
         <div className="w-full max-w-2xl">
