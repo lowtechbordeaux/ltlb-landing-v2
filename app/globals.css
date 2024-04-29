@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    font-size: 15px;
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -97,6 +98,6 @@
   }
 
   p {
-    @apply mb-2 last:mb-0 text-sm;
+    @apply mb-2 last:mb-0;
   }
 }
