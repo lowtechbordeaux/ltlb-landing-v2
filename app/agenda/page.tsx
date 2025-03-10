@@ -147,7 +147,7 @@ export default async function Agenda() {
           {nextEvents.length ? (
             nextEvents.map((event) => <EventRow event={event} key={event.id} />)
           ) : (
-            <p className="text-center">Aucun évenement à venir</p>
+            <p className="text-center py-4">Aucun évenement à venir</p>
           )}
         </div>
       </div>
@@ -161,7 +161,7 @@ export default async function Agenda() {
           {pastEvents.length ? (
             pastEvents.map((event) => <EventRow event={event} key={event.id} />)
           ) : (
-            <p className="text-center">Aucun évenement passé</p>
+            <p className="text-center py-4">Aucun évenement passé</p>
           )}
         </div>
       </div>
