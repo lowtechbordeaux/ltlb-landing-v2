@@ -54,7 +54,7 @@ async function EventRow({ event }: { event: PageObjectResponse }) {
   const blocks = await getPageContent(event.id);
 
   return (
-    <div className="w-full flex flex-col px-4 py-6">
+    <div className="w-full flex flex-col px-4 py-6 border-b last:border-b-0">
       <div className="flex  flex-row justify-between">
         <div className="flex">
           <div className="flex flex-col justify-center h-full">
