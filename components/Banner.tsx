@@ -2,16 +2,24 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Header() {
-    return null
-    return (
-        <Link
-            href="https://jeparticipe.gironde.fr/project/budget-participatif-2023/collect/proposez-vos-projets/proposals/zone-de-fraicheur-urbaine"
-            className='flex px-4 py-2 sm:py-2 justify-center items-center bg-orange-bp  hover:bg-energy-yellow-400 border border-dashed'
-            target='_blank'
-        >
-            <Image src="/assets/logos/bee.webp" alt="bee" width={28} height={28} className='mr-4' />
+  return (
+    <Link
+      href="https://www.jadopteunprojet.com/decouvrez-les-projets/detail/low-tech-lab-bordeaux"
+      className="flex px-4 py-2 sm:py-2 justify-center items-center bg-blue-jup hover:bg-blue-jup-hover border border-dashed"
+      target="_blank"
+    >
+      <Image
+        src="/assets/bp/jup.png"
+        alt="jup"
+        width={28}
+        height={28}
+        className="mr-4"
+      />
 
-            <span className='font-light text-center text-xs sm:text-sm'>Il est temps de voter pour le budget participatif de Gironde !</span>
-        </Link>
-    );
+      <span className="font-light text-center text-white text-lg">
+        Soutenez notre campagne participative sponsorisée par la ville de
+        Bordeaux !
+      </span>
+    </Link>
+  );
 }
