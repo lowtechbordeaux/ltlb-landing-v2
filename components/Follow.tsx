@@ -10,8 +10,8 @@ export default function Follow({ className }: { className?: string }) {
         )}>
             {[
                 ["https://discord.gg/DHAfV7N43U", '/assets/socials/discord.svg', "Discord"],
-                ["https://instagram.com/lowtechbordeaux", '/assets/socials/instagram.svg', "Instagram"],
-                ["https://fb.com/lowtechbordeaux", '/assets/socials/facebook.svg', "Facebook"],
+                ["https://instagram.com/lowtechlabbordeaux", '/assets/socials/instagram.svg', "Instagram"],
+                ["https://fb.com/lowtechlabbordeaux", '/assets/socials/facebook.svg', "Facebook"],
                 ["https://linkedin.com/company/low-tech-lab-bordeaux", '/assets/socials/linkedin.svg', "Linkedin"],
                 ["https://twitter.com/lowtechbordeaux", '/assets/socials/x.svg', "Twitter"],
                 ["https://www.youtube.com/channel/UCXZS6Zgi09COLJkkgbbHBwg", '/assets/socials/youtube.svg', "Youtube"],
